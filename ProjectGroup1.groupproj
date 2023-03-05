@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{06776CA7-E70E-4A97-AE58-DA28B38FBA02}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DTMigrator.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="demo\Migrador.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DTMigrator">
+        <MSBuild Projects="DTMigrator.dproj"/>
+    </Target>
+    <Target Name="DTMigrator:Clean">
+        <MSBuild Projects="DTMigrator.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DTMigrator:Make">
+        <MSBuild Projects="DTMigrator.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Migrador">
+        <MSBuild Projects="demo\Migrador.dproj"/>
+    </Target>
+    <Target Name="Migrador:Clean">
+        <MSBuild Projects="demo\Migrador.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Migrador:Make">
+        <MSBuild Projects="demo\Migrador.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DTMigrator;Migrador"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DTMigrator:Clean;Migrador:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DTMigrator:Make;Migrador:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

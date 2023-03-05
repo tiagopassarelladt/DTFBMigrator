@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/17 17:06:29.000.998,=C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/09/17 17:06:44.000.476,C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\Migrador.dproj</Transaction>
+    <Transaction>2022/09/17 17:07:49.000.441,C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\tiago\OneDrive\Área de Trabalho\DTFBMigrator\demo\Unit1.dfm</Transaction>
+    <Transaction>2022/09/17 17:07:49.000.441,C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\tiago\OneDrive\Área de Trabalho\DTFBMigrator\demo\Unit1.pas</Transaction>
+    <Transaction>2022/09/17 17:07:52.000.733,C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\Migrador.dproj=C:\Users\tiago\OneDrive\Área de Trabalho\DTFBMigrator\demo\Migrador.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,70 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, DTFBMigrator, Vcl.ComCtrls;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Label1: TLabel;
+    Button1: TButton;
+    DTFBMigrator1: TDTFBMigrator;
+    Memo1: TMemo;
+    ProgressBar1: TProgressBar;
+    Button2: TButton;
+    cboFirebirdAtual: TComboBox;
+    cboFirebirdMibrar: TComboBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure DTFBMigrator1Migrate(Msg: string);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+       Memo1.Lines.Clear;
+       DTFBMigrator1.vFirebirdAtual          := vFB21;
+       DTFBMigrator1.vFirebirdMigrar         := vmFB30;
+       DTFBMigrator1.CaminhoDataBase         := Edit1.Text;
+       DTFBMigrator1.CaminhoArquivosMigracao := 'C:\temp\';
+       DTFBMigrator1.Migrar;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+    Memo1.Lines.Clear;
+    DTFBMigrator1.vFirebirdAtual          := vFB21;
+    DTFBMigrator1.vFirebirdMigrar         := vmFB30;
+    DTFBMigrator1.CaminhoDataBase         := Edit1.Text;
+    DTFBMigrator1.CaminhoArquivosMigracao := 'C:\temp\';
+
+    DTFBMigrator1.DownloadFiles;
+end;
+
+procedure TForm1.DTFBMigrator1Migrate(Msg: string);
+begin
+       Memo1.Lines.Add( msg );
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+        Memo1.Lines.Clear;
+end;
+
+end.

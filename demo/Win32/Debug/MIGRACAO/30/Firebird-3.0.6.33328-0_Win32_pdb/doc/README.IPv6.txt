@@ -1,0 +1,54 @@
+IPv6 support in Firebird 3.0
+----------------------------
+
+Starting with version 3.0, Firebird can use IPv6 connections, both on client
+and server side.
+
+
+Client
+------
+
+As standard text form of an IPv6 address uses colons which Firebird uses to
+separate host and database in connection strings, IPv6 address needs to be
+enclosed in brackets. Examples:
+
+  connect '[2014:1234::5]:test';
+  connect '[2014:1234::5]/3049:/srv/firebird/test.fdb';
+
+For consistency, (optional) square brackets can be also used around an IPv4
+address or a domain name.
+
+If a domain name is used in connection string, all addresses (IPv4 and IPv6)
+are tried in the order returned by resolver until a connection is established.
+Only if all attempts fail, the client fails to connect.
+
+New URL-style connection string format (see README.connection_strings) allows
+to restrict name lookup to only IPv4 or IPv6 addresses:
+
+  connect 'inet://server.example.org/test';
+  connect 'inet4://server.example.org/test';
+  connect 'inet6://server.example.org/test';
+
+First example tries all addresses, second only IPv4 ones, third only IPv6
+ones. This can be used to avoid connection delays on systems where name lookup
+returns IPv6 addresses for some host names but attempts to connect to them
+time out rather than failing immediatelly (as reported, this can happen even
+for name "localhost" on some systems).
+
+
+Server
+------
+
+By default, Firebird server listens on zero IPv6 address (::) and accepts all
+incoming connections, IPv4 and IPv6. This behaviour can be changed by config
+directive IPv6V6Only. If it is set to true, server listening on zero IPv6
+address (implicitely or explicitely) will accept only IPv6 connections.
+
+Different listening address (IPv4 or IPv6) can be set using RemoteBindAddress
+directive. If an IPv4 address or non-zero IPv6 address is used, IPv6V6Only
+directive has no effect.
+
+Note: on POSIX platforms, server started in Classic mode via (x)inetd ignores
+the RemoteBindAddress, RemoteServicePort and RemoteServiceName directives as
+the listening socket is set up by (x)inetd. Listening address and/or port need
+to be set in (x)inetd configuration in this mode.
