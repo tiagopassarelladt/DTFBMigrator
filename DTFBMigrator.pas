@@ -28,8 +28,8 @@ type
   end;
 
 
-type VerFirebirdAtual  = ( vFB21, vFV25, vFB30, vFB40 );
-type VerFirebirdMigrar = ( vmFV25, vmFB30, vmFB40 );
+type VerFirebirdAtual  = ( vFB21, vFV25, vFB30, vFB40,vFB50 );
+type VerFirebirdMigrar = ( vmFB25, vmFB30, vmFB40, vmFB50 );
 
 type
   TStatus = procedure(Msg:string) of object;
@@ -166,10 +166,15 @@ begin
         OnMigrate( timetostr(now) + ' - Migração da versão: 4.0' );
         vNumberVerAtu := '40';
         end;
+        vFB50:
+        begin
+        OnMigrate( timetostr(now) + ' - Migração da versão: 5.0' );
+        vNumberVerAtu := '50';
+        end;
       end;
 
       case FvFirebirdMigrar of
-        vmFV25:
+        vmFB25:
         begin
         OnMigrate( timetostr(now) + ' - Para versão: 2.5' );
         vNumberVerMig := '25';
@@ -183,6 +188,11 @@ begin
         begin
         OnMigrate( timetostr(now) + ' - Para versão: 4.0' );
         vNumberVerMig := '40';
+        end;
+        vmFB50:
+        begin
+        OnMigrate( timetostr(now) + ' - Para versão: 5.0' );
+        vNumberVerMig := '50';
         end;
       end;
 
@@ -198,7 +208,7 @@ begin
       Writeln(arq, 'SET ISC_USER=SYSDBA');
 
       Writeln(arq, '"'+ vNumberVerAtu +'\gbak.exe" -z -b -g -v -y ' + vNumberVerAtu +'.log ' + FCaminhoDataBase + ' stdout |^');
-      Writeln(arq, '"'+ vNumberVerMig +'\gbak.exe" -z -c -v -st t -y ' + vNumberVerMig + '.log stdin ' + BaseRestaurada + ' -fix_fss_m WIN1252');
+      Writeln(arq, '"'+ vNumberVerMig +'\gbak.exe" -z -c -v -st t -y ' + vNumberVerMig + '.log stdin ' + Direct + BaseRestaurada + ' -fix_fss_m WIN1252');
       CloseFile(arq);
 
       if FileExists(FCaminhoArquivosMigracao + 'Restaura.Bat') then
