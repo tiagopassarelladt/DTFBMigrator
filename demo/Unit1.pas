@@ -63,9 +63,10 @@ begin
       end;
 
       case cboFirebirdMibrar.ItemIndex of
-      0: DTFBMigrator1.vFirebirdMigrar := vmFV25;
+      0: DTFBMigrator1.vFirebirdMigrar := vmFB25;
       1: DTFBMigrator1.vFirebirdMigrar := vmFB30;
       2: DTFBMigrator1.vFirebirdMigrar := vmFB40;
+      3: DTFBMigrator1.vFirebirdMigrar := vmFB50;
       end;
 
       DTFBMigrator1.CaminhoDataBase         := Edit1.Text;
@@ -80,7 +81,7 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-        Memo1.Lines.Clear;
+       Memo1.Lines.Clear;
 end;
 
 end.

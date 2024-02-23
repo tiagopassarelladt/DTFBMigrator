@@ -12,10 +12,8 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
     Left = 8
@@ -96,7 +94,8 @@ object Form1: TForm1
     Items.Strings = (
       'Firebird 2.1'
       'Firebird 2.5'
-      'Firebird 3.0')
+      'Firebird 3.0'
+      'Firebird 4.0')
   end
   object cboFirebirdMibrar: TComboBox
     Left = 159
@@ -111,7 +110,8 @@ object Form1: TForm1
     Items.Strings = (
       'Firebird 2.5'
       'Firebird 3.0'
-      'Firebird 4.0')
+      'Firebird 4.0'
+      'Firebird 5.0')
   end
   object DTFBMigrator1: TDTFBMigrator
     OnMigrate = DTFBMigrator1Migrate
