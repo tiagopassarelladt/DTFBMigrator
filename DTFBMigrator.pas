@@ -97,17 +97,25 @@ begin
 end;
 
 procedure TDTFBMigrator.DownloadFiles;
+var
+  SSLIOHandler: TIdSSLIOHandlerSocketOpenSSL;
 begin
+
     if FCaminhoArquivosMigracao = '' then
     begin
        raise Exception.Create('É necessário a informação do Caminho dos Arquivos de Migracao');
        abort;
     end;
-    OnMigrate( timetostr(now) + ' - Efetuando Download dos Arquivos de migração' );
-    IdHTTPProgress          := TIdHTTPProgress.Create(self);
+
+    OnMigrate( timetostr(now) + ' - Efetuando Download dos Arquivos de migra��o' );
+    SSLIOHandler             := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
+    IdHTTPProgress           := TIdHTTPProgress.Create(self);
+    SSLIOHandler.SSLOptions.Method := sslvTLSv1_2;
+    IdHTTPProgress.IOHandler := SSLIOHandler;
     IdHTTPProgress.OnChange := IdHTTPProgressOnChange;
     IdHTTPProgress.DownloadFile('https://github.com/tiagopassarelladt/DTFBMigrator/raw/refs/heads/master/demo/migracao.zip', FCaminhoArquivosMigracao + 'migracao.zip');
     IdHTTPProgress.free;
+     SSLIOHandler.Free;
 
     OnMigrate( timetostr(now) + ' - Download efetuado com sucesso' );
 
