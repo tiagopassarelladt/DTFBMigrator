@@ -103,15 +103,15 @@ begin
 
     if FCaminhoArquivosMigracao = '' then
     begin
-       raise Exception.Create('… necess·rio a informaÁ„o do Caminho dos Arquivos de Migracao');
+       raise Exception.Create('√â necess√°rio a informa√ß√£o do Caminho dos Arquivos de Migracao');
        abort;
     end;
-    OnMigrate( timetostr(now) + ' - Efetuando Download dos Arquivos de migraÁ„o' );
+
+    OnMigrate( timetostr(now) + ' - Efetuando Download dos Arquivos de migraÔøΩÔøΩo' );
     SSLIOHandler             := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
     IdHTTPProgress           := TIdHTTPProgress.Create(self);
     SSLIOHandler.SSLOptions.Method := sslvTLSv1_2;
     IdHTTPProgress.IOHandler := SSLIOHandler;
-
     IdHTTPProgress.OnChange := IdHTTPProgressOnChange;
     IdHTTPProgress.DownloadFile('https://github.com/tiagopassarelladt/DTFBMigrator/raw/refs/heads/master/demo/migracao.zip', FCaminhoArquivosMigracao + 'migracao.zip');
     IdHTTPProgress.free;
@@ -140,13 +140,13 @@ var
 begin
       if FCaminhoArquivosMigracao = '' then
       begin
-         raise Exception.Create('… necess·rio a informaÁ„o do Caminho dos Arquivos de Migracao');
+         raise Exception.Create('√â necess√°rio a informa√ß√£o do Caminho dos Arquivos de Migracao');
          abort;
       end;
 
       if FCaminhoDataBase = '' then
       begin
-         raise Exception.Create('… necess·rio informar o Caminho do DataBase');
+         raise Exception.Create('√â necess√°rio informar o Caminho do DataBase');
          abort;
       end;
 
@@ -156,27 +156,27 @@ begin
       case FvFirebirdAtual of
         vFB21:
         begin
-        OnMigrate( timetostr(now) + ' - MigraÁ„o da vers„o: 2.1' );
+        OnMigrate( timetostr(now) + ' - Migra√ß√£o da vers√£o: 2.1' );
         vNumberVerAtu := '21';
         end;
         vFV25:
         begin
-        OnMigrate( timetostr(now) + ' - MigraÁ„o da vers„o: 2.5' );
+        OnMigrate( timetostr(now) + ' - Migra√ß√£o da vers√£o: 2.5' );
         vNumberVerAtu := '25';
         end;
         vFB30:
         begin
-        OnMigrate( timetostr(now) + ' - MigraÁ„o da vers„o: 3.0' );
+        OnMigrate( timetostr(now) + ' - Migra√ß√£o da vers√£o: 3.0' );
         vNumberVerAtu := '30';
         end;
         vFB40:
         begin
-        OnMigrate( timetostr(now) + ' - MigraÁ„o da vers„o: 4.0' );
+        OnMigrate( timetostr(now) + ' - Migra√ß√£o da vers√£o: 4.0' );
         vNumberVerAtu := '40';
         end;
         vFB50:
         begin
-        OnMigrate( timetostr(now) + ' - MigraÁ„o da vers„o: 5.0' );
+        OnMigrate( timetostr(now) + ' - Migra√ß√£o da vers√£o: 5.0' );
         vNumberVerAtu := '50';
         end;
       end;
@@ -184,27 +184,27 @@ begin
       case FvFirebirdMigrar of
         vmFB25:
         begin
-        OnMigrate( timetostr(now) + ' - Para vers„o: 2.5' );
+        OnMigrate( timetostr(now) + ' - Para vers√£o: 2.5' );
         vNumberVerMig := '25';
         end;
         vmFB30:
         begin
-        OnMigrate( timetostr(now) + ' - Para vers„o: 3.0' );
+        OnMigrate( timetostr(now) + ' - Para vers√£o: 3.0' );
         vNumberVerMig := '30';
         end;
         vmFB40:
         begin
-        OnMigrate( timetostr(now) + ' - Para vers„o: 4.0' );
+        OnMigrate( timetostr(now) + ' - Para vers√£o: 4.0' );
         vNumberVerMig := '40';
         end;
         vmFB50:
         begin
-        OnMigrate( timetostr(now) + ' - Para vers„o: 5.0' );
+        OnMigrate( timetostr(now) + ' - Para vers√£o: 5.0' );
         vNumberVerMig := '50';
         end;
       end;
 
-      OnMigrate( timetostr(now) + ' - Iniciando migraÁ„o' );
+      OnMigrate( timetostr(now) + ' - Iniciando migra√ß√£o' );
       Direct            := ExtractFilePath( FCaminhoDataBase );
       NomeBase          := ExtractFileName( FCaminhoDataBase ) ;
       BaseRestaurada    := NomeBase.Replace('.FDB','') + vNumberVerMig + '.FDB';
@@ -238,9 +238,9 @@ begin
 
            if I >= 0 then
            begin
-             OnMigrate( timetostr(now) + ' - MigraÁ„o concluÌda com sucesso' );
+             OnMigrate( timetostr(now) + ' - Migra√ß√£o conclu√≠da com sucesso' );
            end else begin
-             OnMigrate( timetostr(now) + ' - MigraÁ„o n„o concluÌda' );
+             OnMigrate( timetostr(now) + ' - Migra√ß√£o n√£o conclu√≠da' );
            end;
       end;
 end;
