@@ -2,12 +2,12 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2022/09/17 16:21:49.000.961,=rtl.dcp</Transaction>
-    <Transaction>2022/09/17 16:22:11.000.450,C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\Package1.dproj=C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\DTFBMigrator.dproj</Transaction>
+    <Transaction>2022/09/17 16:22:11.000.450,C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\DTFBMigrator.dproj=C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
     <Transaction>2022/09/17 16:24:02.000.238,=C:\Users\tiago\OneDrive\Área de Trabalho\DTFBMigrator\DTFBMigrator.pas</Transaction>
-    <Transaction>2022/09/17 16:24:43.000.113,C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\DTFBMigrator.dproj=C:\Users\tiago\OneDrive\Área de Trabalho\DTFBMigrator\DTMigrator.dproj</Transaction>
-    <Transaction>2022/09/19 15:58:49.000.633,=vcl.dcp</Transaction>
+    <Transaction>2022/09/17 16:24:43.000.113,C:\Users\tiago\OneDrive\Área de Trabalho\DTFBMigrator\DTMigrator.dproj=C:\Users\tiago\OneDrive\Documentos\Embarcadero\Studio\Projects\DTFBMigrator.dproj</Transaction>
     <Transaction>2022/09/19 15:58:49.000.655,=IndySystem.dcp</Transaction>
-    <Transaction>2022/09/19 15:58:49.000.733,=IndyCore.dcp</Transaction>
+    <Transaction>2022/09/19 15:58:49.000.633,=vcl.dcp</Transaction>
     <Transaction>2022/09/19 15:58:49.000.680,=IndyProtocols.dcp</Transaction>
+    <Transaction>2022/09/19 15:58:49.000.733,=IndyCore.dcp</Transaction>
   </Transactions>
 </BorlandProject>
